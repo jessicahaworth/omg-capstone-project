@@ -5,5 +5,6 @@ class HelloWorldController {
 	String address
 	def world() {
 		render "use create controller for this much to work"
+		render "Just pushed to main repo"
 	}
 }
