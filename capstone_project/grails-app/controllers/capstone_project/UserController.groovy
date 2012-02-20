@@ -17,7 +17,7 @@ class UserController {
 		}
 		if(!session.user.admin){
 			flash.message = "Tsk tsk—admins only"
-			redirect(controller:"race", action:"list")
+			redirect(controller:"profilePage", action:"list")
 			return false
 		}
 	}
@@ -37,7 +37,7 @@ class UserController {
 		if(user){
 			session.user = user
 			flash.message = "Hello ${user.login}!"
-			redirect(controller:"profilePage", action:"list")
+			redirect(controller:"profilePage", action:"show", params: [userID:"${user.login}"])
 		}
 		else{
 			flash.message = "Sorry, ${params.login}. Please try again."
@@ -68,7 +68,17 @@ class UserController {
 		flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
         redirect(action: "show", id: userInstance.id)
     }
-
+	
+	def disp(){
+		def userInstance = User.get(params.userID)
+		if(!userInstance){
+			flash.message = message("Could not find ${params.login}")
+			redirect(action:"list")
+		}	
+		
+		[userInstance: userInstance]
+	}
+	
     def show() {
         def userInstance = User.get(params.id)
         if (!userInstance) {
