@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="1" hostname="DOOMTOP" id="0" name="EventTests" package="capstone_project" tests="1" time="0.821" timestamp="2012-02-08T22:31:04">
+      <properties />
+
+      <testcase classname="capstone_project.EventTests" name="testSomething" time="0.748">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at capstone_project.EventTests.testSomething(EventTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="DOOMTOP" id="1" name="ProjectTests" package="capstone_project" tests="1" time="0.624" timestamp="2012-02-08T22:31:05">
+      <properties />
+
+      <testcase classname="capstone_project.ProjectTests" name="testSomething" time="0.074">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at capstone_project.ProjectTests.testSomething(ProjectTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="DOOMTOP" id="2" name="TestControllerTests" package="capstone_project" tests="1" time="1.494" timestamp="2012-02-08T22:31:06">
+      <properties />
+
+      <testcase classname="capstone_project.TestControllerTests" name="testSomething" time="1.439">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at capstone_project.TestControllerTests.testSomething(TestControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="DOOMTOP" id="3" name="Test_domainTests" package="capstone_project" tests="1" time="0.103" timestamp="2012-02-08T22:31:07">
+      <properties />
+
+      <testcase classname="capstone_project.Test_domainTests" name="testSomething" time="0.065">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at capstone_project.Test_domainTests.testSomething(Test_domainTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="DOOMTOP" id="4" name="UserTests" package="capstone_project" tests="1" time="0.073" timestamp="2012-02-08T22:31:07">
+      <properties />
+
+      <testcase classname="capstone_project.UserTests" name="testSomething" time="0.07">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at capstone_project.UserTests.testSomething(UserTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

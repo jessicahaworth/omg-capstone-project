@@ -1,0 +1,15 @@
+Testsuite: capstone_project.Test_domainTests
+Tests run: 1, Failures: 1, Errors: 0, Time elapsed: 0.103 sec
+------------- Standard Output ---------------
+--Output from testSomething--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testSomething--
+------------- ---------------- ---------------
+
+Testcase: testSomething took 0.065 sec
+	FAILED
+java.lang.AssertionError: Implement me
+junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at capstone_project.Test_domainTests.testSomething(Test_domainTests.groovy:15)
+

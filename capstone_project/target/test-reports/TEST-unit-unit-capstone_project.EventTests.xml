@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="1" hostname="DOOMTOP" name="capstone_project.EventTests" tests="1" time="0.821" timestamp="2012-02-08T22:31:04">
+  <properties />
+  <testcase classname="capstone_project.EventTests" name="testSomething" time="0.748">
+    <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at capstone_project.EventTests.testSomething(EventTests.groovy:15)
+</failure>
+  </testcase>
+  <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+  <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+</testsuite>
