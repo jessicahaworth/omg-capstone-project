@@ -10,7 +10,7 @@ class BootStrap {
 		switch(GrailsUtil.environment){
 			case "development":
 			
-			def profAdmin = new ProfilePage(userID:"admin", lastName:"admin", firstName:"admin", emailAddress:"admin@admin.admin" , skillSet:"Chuck Norris")
+			def profAdmin = new ProfilePage(userName:"admin", lastName:"min", firstName:"ad", emailAddress:"admin@admin.admin" , skillSet:"Chuck Norris")
 			profAdmin.save()
 			if(profAdmin.hasErrors()){
 				println profAdmin.errors
