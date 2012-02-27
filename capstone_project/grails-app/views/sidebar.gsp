@@ -1,54 +1,10 @@
-<!doctype html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
-	<head>
-	
-	<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
-			
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
-			</style>
-	
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
-		<link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
-		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
-		<g:layoutHead/>
-        <r:layoutResources />
-	</head>
-	<body>
-	<div><a href="http://omahamakergroup.org/"><img src="${resource(dir: 'images', file: 'cropped-OMG_Title2.jpg')}" alt="Grails"/></a></div>
-	<div id="status" role="complementary">
-			<h2>Contributors</h2>
+<html>
+<h2>Contributors</h2>
 			<ul>
+				<li><a href="http://www.rspoon.com" title="I make stuff">RustySpoon Random Stuff</a></li>
 				<li><a href="http://davestech.blogspot.com/" title="Simply documentation of projects I start and sometimes even finish.">Dave&#8217;s Tech Blog</a></li>
 				<li><a href="http://www.fusselman.org/wp" title="Technology, Travel and Everything Else">Fusselman.org » Omaha Maker Group</a></li>
 				<li><a href="http://grickle.org" title="News, musings, and other ramblings of James Harr">Grickle Blag</a></li>
-				<li><a href="http://www.rspoon.com" title="I make stuff">RustySpoon Random Stuff</a></li>
-
 			</ul>
 			
 			<h2>Friends</h2>
@@ -73,16 +29,4 @@
 				<li><a href="http://omahamakergroup.org/?attachment_id=19" rel="me">OMG Bylaws</a></li>
 				<li><a href="http://groups.google.com/group/omaha-maker-group">OMG Google Group</a></li>
 			</ul>
-		</div>
-		
-		<div id="page-body" role="main">
-		<g:layoutBody/>
-		</div>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-		<g:javascript library="application"/>
-		
-		<r:layoutResources />
-        
-	</body>
 </html>
