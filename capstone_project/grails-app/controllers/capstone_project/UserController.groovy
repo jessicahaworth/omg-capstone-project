@@ -39,7 +39,7 @@ class UserController {
 		if(user){
 			session.user = user
 			flash.message = "Hello ${user.login}!"
-			redirect(controller:"user", action:"show", params: user.id)
+			redirect(controller:"user", action:"show", id:user.id)
 		}
 		else{
 			flash.message = "Sorry, ${params.login}. Please try again."
