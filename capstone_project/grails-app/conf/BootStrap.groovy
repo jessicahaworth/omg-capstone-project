@@ -10,17 +10,14 @@ class BootStrap {
 		switch(GrailsUtil.environment){
 			case "development":
 			
-			def profAdmin = new ProfilePage(userName:"admin", lastName:"min", firstName:"ad", emailAddress:"admin@admin.admin" , skillSet:"Chuck Norris")
-			profAdmin.save()
-			if(profAdmin.hasErrors()){
-				println profAdmin.errors
-			}
-			
 			def admin = new User(
 				login:"admin",
 				password:"wordpass",
 				role:"admin",
-				
+				lastName:"min", 
+				firstName:"ad", 
+				emailAddress:"admin@admin.admin",
+				// try and fix this here
 				)
 			admin.save()
 			if(admin.hasErrors()){
@@ -29,7 +26,10 @@ class BootStrap {
 			
 			def jdoe = new User(login:"jdoe",
 				password:"password",
-				role:"user")
+				role:"user",
+				lastName:"Doe", 
+				firstName:"J", 
+				emailAddress:"jdoe@nbody.com")
 			jdoe.save()
 			if(jdoe.hasErrors()){
 				println jdoe.errors

@@ -16,12 +16,13 @@ class ProfilePageController {
    
    def update() {
 	   def profilePageInstance = ProfilePage.get(params.id)
+	   // the problem with update is broken here somehow?
 	   if (!profilePageInstance) {
 		   flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
 		   redirect(action: "list")
 		   return
 	   }
-
+	   
 	   if (params.version) {
 		   def version = params.version.toLong()
 		   if (profilePageInstance.version > version) {
@@ -40,7 +41,7 @@ class ProfilePageController {
 		   return
 	   }
 
-	   flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), profilePageInstance.id])
+	   flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), profilePageInstance.userName])
 	   redirect(action: "show", id: profilePageInstance.userName)
    }
    
