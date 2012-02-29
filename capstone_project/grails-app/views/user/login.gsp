@@ -19,7 +19,7 @@
 					<tbody>
 						<tr class="prop">
 							<td valign="top" class="name">
-								<label for="login">Login:</label>
+								<label for="login">User Name:</label>
 							</td>
 							<td valign="top">
 								<input type="text"

@@ -8,6 +8,8 @@ class UserController {
 
 	def login = {}
 	
+	//def skillSet = params.list("Java","C++", "HTML", "PERL", "Prolog", "C", "Javascript", "Python", "Visual Basic", "LUA", "Cobalt", "Grails", "Fortran", "Rails", "Assembly")
+	
 	def beforeInterceptor = beforeInterceptor = [action:this.&auth, except:['login', 'logout', 'authenticate']]
 	
 	def auth() {
@@ -17,7 +19,7 @@ class UserController {
 		}
 		if(!session.user.admin){
 			flash.message = "Tsk tsk—admins only"
-			redirect(controller:"profilePage", action:"list")
+			redirect(controller:"user", action:"list")
 			return false
 		}
 	}
@@ -37,7 +39,7 @@ class UserController {
 		if(user){
 			session.user = user
 			flash.message = "Hello ${user.login}!"
-			redirect(controller:"profilePage", action:"show", params: [id:"${user.login}"])
+			redirect(controller:"user", action:"show", params: user.id)
 		}
 		else{
 			flash.message = "Sorry, ${params.login}. Please try again."
@@ -121,7 +123,12 @@ class UserController {
         }
 
         userInstance.properties = params
-
+		
+		def _toBeDeleted = userInstance.skillSet.findAll{it._deleted}
+		if(_toBeDeleted){
+			userInstance.skillSet.removeAll(_toBeDeleted)
+		}
+		
         if (!userInstance.save(flush: true)) {
             render(view: "edit", model: [userInstance: userInstance])
             return
