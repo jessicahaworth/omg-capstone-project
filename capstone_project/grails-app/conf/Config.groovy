@@ -91,3 +91,5 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+grails.commentable.poster.evaluator = { session.user }

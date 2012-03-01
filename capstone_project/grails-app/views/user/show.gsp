@@ -115,5 +115,8 @@
 				</fieldset>
 			</g:form>
 		</div>
+		<div>
+			<comments:render bean="${userInstance}" />
+		</div>
 	</body>
 </html>

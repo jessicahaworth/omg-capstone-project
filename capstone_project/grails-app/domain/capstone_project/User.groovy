@@ -1,10 +1,12 @@
 package capstone_project
-
+import org.grails.comments.*
 import java.util.Date;
 import org.apache.commons.collections.list.LazyList;
 import org.apache.commons.collections.FactoryUtils;
+import org.grails.comments.Commentable;
 
-class User {
+class User implements Commentable
+{
 
 	String login
 	String password
