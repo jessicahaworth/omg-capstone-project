@@ -40,7 +40,7 @@
         <r:layoutResources />
 	</head>
 	<body>
-	<div><a href="http://omahamakergroup.org/"><img src="${resource(dir: 'images', file: 'cropped-OMG_Title2.jpg')}" alt="Grails"/></a></div>
+	<div><img src="${resource(dir: 'images', file: 'cropped-OMG_Title2.jpg')}" alt="Grails"/></div>
 	<div id="status" role="complementary">
 			<h2>Contributors</h2>
 			<ul>
