@@ -22,6 +22,7 @@ class User implements Commentable
 	Date lastUpdated
 	
 	static mapping = {
+		//comments sort: "dateCreated", order:"desc"
 		skills cascade:"all-delete-orphan"
 	}
 	
