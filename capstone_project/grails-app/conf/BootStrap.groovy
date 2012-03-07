@@ -1,4 +1,3 @@
-import capstone_project.ProfilePage
 import capstone_project.User
 import capstone_project.Event
 import capstone_project.Project

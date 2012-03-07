@@ -15,7 +15,7 @@
 		</g:if>
 		<g:form action="authenticate" method="post" >
 			<div class="dialog">
-				<table>
+				<table style="width: 80%; align:center">
 					<tbody>
 						<tr class="prop">
 							<td valign="top" class="name">
