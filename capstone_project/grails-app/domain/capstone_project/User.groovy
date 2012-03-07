@@ -16,7 +16,7 @@ class User implements Commentable
 	//String phoneNumber
 	String emailAddress
 	List skills = new ArrayList()
-	static hasMany = [skills:SkillSet]
+	static hasMany = [skills:Skill]
 	
 	Date dateCreated
 	Date lastUpdated
@@ -25,12 +25,7 @@ class User implements Commentable
 		//comments sort: "dateCreated", order:"desc"
 		skills cascade:"all-delete-orphan"
 	}
-	
-	def getSkillList(){
-		return LazyList.decorate(skills, FactoryUtils.instantiateFactor(SkillSet.class))
-	}
-	
-	
+
 	//ProfilePage profilePage
 	static constraints = {
 		login(blank:false, nullable:false, unique:true)
@@ -39,9 +34,6 @@ class User implements Commentable
 		firstName(blank:false, maxSize:50)
 		lastName(blank:false, maxSize:50)
 		emailAddress(email:true)
-		//skillSet(blank: true, nullable: true, inList:["Java","C++", "HTML", "PERL", "Prolog", "C", "Javascript", "Python", "Visual Basic", "LUA", "Cobalt", "Grails", "Fortran", "Rails", "Assembly", "" ])
-		
-		//phoneNumber(matches:" [0-9] +")
 	}
 	
 	static transients = ['admin']
