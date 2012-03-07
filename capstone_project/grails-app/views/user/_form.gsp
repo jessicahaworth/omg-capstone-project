@@ -1,5 +1,5 @@
 <%@ page import="capstone_project.User" %>
-
+<g:javascript library="jquery" plugin="jquery"/>
 
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'login', 'error')} required">
@@ -55,15 +55,15 @@
 		<g:message code="user.skills.label" default="Skills" />
 		
 	</label>
-	
-<ul class="one-to-many">
-<g:each in="${userInstance?.skills?}" var="s">
-    <li><g:link controller="skillSet" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="skillSet" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'skillSet.label', default: 'SkillSet')])}</g:link>
-</li>
-</ul>
+	<table>
+		<tbody>
+	    	<tr class="prop">
+        		<td valign="top" class="value ${hasErrors(bean: userInstance, field: 'skills', 'errors')}">
+        			<g:render template="skills" model="['userInstance':userInstance]" />
+    			</td>
+    		</tr>
+    	</tbody>
+  	</table>
 
 </div>
 

@@ -36,6 +36,8 @@
 					
 						<g:sortableColumn property="emailAddress" title="${message(code: 'user.emailAddress.label', default: 'Email Address')}" />
 					
+						<th><g:message code="user.skills.label" default="Number of Skills" /></th>
+                        
 					</tr>
 				</thead>
 				<tbody>
@@ -54,6 +56,8 @@
 					
 						<td>${fieldValue(bean: userInstance, field: "emailAddress")}</td>
 					
+						<td>${userInstance.skills.size()}</td>
+                            
 					</tr>
 				</g:each>
 				</tbody>

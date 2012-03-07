@@ -62,6 +62,19 @@ class UserController {
 
     def save() {
         def userInstance = new User(params)
+		
+		def _toBeRemoved = userInstance.skills.findAll {!it}
+		
+		if (_toBeRemoved) {
+			userInstance.skills.removeAll(_toBeRemoved)
+		 }
+		
+		//update my indexes
+		userInstance.skills.eachWithIndex(){skl, i ->
+			if(skl)
+				skl.index = i
+		}
+		
         if (!userInstance.save(flush: true)) {
             render(view: "create", model: [userInstance: userInstance])
             return
@@ -155,9 +168,17 @@ class UserController {
 
         userInstance.properties = params
 		
-		def _toBeDeleted = userInstance.skillSet.findAll{it._deleted}
-		if(_toBeDeleted){
-			userInstance.skillSet.removeAll(_toBeDeleted)
+		def _toBeDeleted = userInstance.skills.findAll {it?.deleted || !it}
+		
+		// if there are phones to be deleted remove them all
+		if (_toBeDeleted) {
+			userInstance.skills.removeAll(_toBeDeleted)
+		}
+		
+		//update my indexes
+		userInstance.skills.eachWithIndex(){skl, i ->
+			if(skl)
+				skl.index = i
 		}
 		
         if (!userInstance.save(flush: true)) {
