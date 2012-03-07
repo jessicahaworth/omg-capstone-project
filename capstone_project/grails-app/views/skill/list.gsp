@@ -1,5 +1,5 @@
 
-<%@ page import="capstone_project.SkillSet" %>
+<%@ page import="capstone_project.Skill" %>
 <!doctype html>
 <html>
 	<head>

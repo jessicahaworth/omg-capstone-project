@@ -2,7 +2,7 @@ package capstone_project
 
 import org.springframework.dao.DataIntegrityViolationException
 
-class SkillSetController {
+class SkillController {
 
 	def scaffold = true
 }

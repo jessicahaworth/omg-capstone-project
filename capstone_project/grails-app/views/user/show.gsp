@@ -96,14 +96,24 @@
 				</g:if>
 			
 				<g:if test="${userInstance?.skills}">
-				<li class="fieldcontain">
-					<span id="skills-label" class="property-label"><g:message code="user.skills.label" default="Skills" /></span>
-					
-						<g:each in="${userInstance.skills}" var="s">
-						<span class="property-value" aria-labelledby="skills-label"><g:link controller="skillSet" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
+				<table>
+				<tbody>
+				<tr class="prop">
+                            <td valign="top" class="name"><g:message code="user.skills.label" default="Skills" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${userInstance.skills}" var="p">
+                                    <li>${p?.encodeAsHTML()}</li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                    </tbody>
+                    </tbody>
+                    </table>
 				</g:if>
 			
 			</ol>

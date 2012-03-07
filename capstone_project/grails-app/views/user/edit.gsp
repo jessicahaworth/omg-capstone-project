@@ -39,5 +39,6 @@
 				</fieldset>
 			</g:form>
 		</div>
+		<g:render template='skill' model="['skill':null, 'i':'_clone', 'hidden':true]"/>
 	</body>
 </html>

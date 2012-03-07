@@ -1,18 +1,24 @@
 package capstone_project
 
-class SkillSet{
+class Skill{
 	
-	String name
-	boolean _deleted
+	String s_name
+	boolean deleted
+	int index
 	
-	static transients = ['_deleted']
+	static transients = ['deleted']
 	static belongsTo = [user:User]
 	
 	def String toString(){
-		return name
+		return "${s_name}"
+	}
+	
+	static mapping={
+		index column:"skill_index"
 	}
 
-		static constraints = {
-	
+	static constraints = {
+		index(blank:false, min:0)
+		s_name(blank:false)
 	}
 }
