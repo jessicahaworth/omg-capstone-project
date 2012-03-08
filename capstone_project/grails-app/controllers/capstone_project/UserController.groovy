@@ -97,35 +97,6 @@ class UserController {
     def show() {
         def userInstance = User.get(params.id)
 		
-		userInstance.comments.sort();
-		/*System.out.println("before: "+userInstance.comments);
-		int max = userInstance.comments.size();
-		System.out.println("Max is: "+max);
-		for (int i = 0; i < max; i++)
-			System.out.println(i+ ": "+userInstance.comments[i].dateCreated);
-		for ( int i = 0; i < max; i++)
-		{
-			System.out.println(i);
-			for ( int j = 0; j < max; j++)
-			{
-				System.out.println(j);
-				Date d1 = userInstance.comments[i].dateCreated;
-				Date d2 =  userInstance.comments[j].dateCreated; 
-				if ( d1 < d2)
-				{
-					System.out.println("fuck, we are swapping!");
-					org.grails.comments.Comment c;
-					c = new org.grails.comments.Comment();
-					c =  userInstance.comments[i];
-					userInstance.comments[i] = userInstance.comments[j];
-					userInstance.comments[j] = c;
-				}
-			}
-		}*/
-		System.out.println("after: "+userInstance.comments.sort());
-		//userInstance.comments = myComments;
-		//myComments.sort()
-		//userInstance.comments = myComments
         if (!userInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
             redirect(action: "list")

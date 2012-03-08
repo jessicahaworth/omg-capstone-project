@@ -1,0 +1,35 @@
+<plugin name='hibernate' version='2.0.1' grailsVersion='2.0 &gt; *'>
+  <author>Graeme Rocher</author>
+  <title>Hibernate for Grails</title>
+  <description>Provides integration between Grails and Hibernate through GORM</description>
+  <documentation>http://grails.org/doc/$version</documentation>
+  <type>HibernateGrailsPlugin</type>
+  <resources />
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies>
+    <compile>
+      <dependency group='org.hibernate' name='hibernate-core' version='3.6.7.Final' />
+      <dependency group='org.hibernate' name='hibernate-validator' version='4.1.0.Final' />
+    </compile>
+    <runtime>
+      <dependency group='org.hibernate' name='hibernate-ehcache' version='3.6.7.Final' />
+      <dependency group='antlr' name='antlr' version='2.7.7' />
+      <dependency group='javassist' name='javassist' version='3.12.0.GA' />
+      <dependency group='dom4j' name='dom4j' version='1.6.1' />
+    </runtime>
+  </dependencies>
+  <plugins />
+  <runtimePluginRequirements>
+    <plugin name='dataSource' version='2.0 &gt; *' />
+    <plugin name='i18n' version='2.0 &gt; *' />
+    <plugin name='core' version='2.0 &gt; *' />
+    <plugin name='domainClass' version='2.0 &gt; *' />
+  </runtimePluginRequirements>
+  <behavior />
+</plugin>
