@@ -1,5 +1,5 @@
 <%@ page import="capstone_project.User" %>
-<g:javascript library="jquery" plugin="jquery"/>
+
 
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'login', 'error')} required">
@@ -50,20 +50,54 @@
 	<g:field type="email" name="emailAddress" value="${userInstance?.emailAddress}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'skills', 'error')} ">
-	<label for="skills">
-		<g:message code="user.skills.label" default="Skills" />
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'adminOf', 'error')} ">
+	<label for="adminOf">
+		<g:message code="user.adminOf.label" default="Admin Of" />
 		
 	</label>
-	<table>
-		<tbody>
-	    	<tr class="prop">
-        		<td valign="top" class="value ${hasErrors(bean: userInstance, field: 'skills', 'errors')}">
-        			<g:render template="skills" model="['userInstance':userInstance]" />
-    			</td>
-    		</tr>
-    	</tbody>
-  	</table>
+	
+<ul class="one-to-many">
+<g:each in="${userInstance?.adminOf?}" var="a">
+    <li><g:link controller="adminOfProject" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="adminOfProject" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'adminOfProject.label', default: 'AdminOfProject')])}</g:link>
+</li>
+</ul>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'hasSkill', 'error')} ">
+	<label for="hasSkill">
+		<g:message code="user.hasSkill.label" default="Has Skill" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${userInstance?.hasSkill?}" var="h">
+    <li><g:link controller="userHasSkill" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="userHasSkill" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'userHasSkill.label', default: 'UserHasSkill')])}</g:link>
+</li>
+</ul>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'memberOf', 'error')} ">
+	<label for="memberOf">
+		<g:message code="user.memberOf.label" default="Member Of" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${userInstance?.memberOf?}" var="m">
+    <li><g:link controller="memberOfProject" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="memberOfProject" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'memberOfProject.label', default: 'MemberOfProject')])}</g:link>
+</li>
+</ul>
 
 </div>
 

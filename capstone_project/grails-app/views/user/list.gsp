@@ -15,41 +15,45 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-	<div id="list-user" class="content scaffold-list" role="main">
+		<div id="list-user" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-		<table style="width: 99%; align:center">
+			<table>
 				<thead>
 					<tr>
+					
+						<g:sortableColumn property="login" title="${message(code: 'user.login.label', default: 'Login')}" />
+					
+						<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Password')}" />
+					
+						<g:sortableColumn property="role" title="${message(code: 'user.role.label', default: 'Role')}" />
 					
 						<g:sortableColumn property="firstName" title="${message(code: 'user.firstName.label', default: 'First Name')}" />
 					
 						<g:sortableColumn property="lastName" title="${message(code: 'user.lastName.label', default: 'Last Name')}" />
 					
-						<g:sortableColumn property="role" title="${message(code: 'user.role.label', default: 'Role')}" />
-					
 						<g:sortableColumn property="emailAddress" title="${message(code: 'user.emailAddress.label', default: 'Email Address')}" />
 					
-						<th><g:message code="user.skills.label" default="Skills" /></th>
-                        
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "firstName")}</g:link></td>
+						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "login")}</g:link></td>
 					
-						<td>${fieldValue(bean: userInstance, field: "lastName")}</td>
+						<td>${fieldValue(bean: userInstance, field: "password")}</td>
 					
 						<td>${fieldValue(bean: userInstance, field: "role")}</td>
 					
+						<td>${fieldValue(bean: userInstance, field: "firstName")}</td>
+					
+						<td>${fieldValue(bean: userInstance, field: "lastName")}</td>
+					
 						<td>${fieldValue(bean: userInstance, field: "emailAddress")}</td>
-						
-       					<td>${fieldValue(bean: userInstance, field: "skills") }</td>
-                            
+					
 					</tr>
 				</g:each>
 				</tbody>

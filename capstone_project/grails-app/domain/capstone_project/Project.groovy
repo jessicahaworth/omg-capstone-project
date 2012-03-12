@@ -7,16 +7,25 @@ import org.grails.comments.Commentable;
 
 class Project implements Commentable 
 {
-	long owner_id
+	static constraints = {
+		name()
+		description()
+		dateCreated()
+		lastUpdated()
+		
+	}
 	String name
+	String description
 	
 	Date dateCreated
 	Date lastUpdated
+	//List members = new ArrayList()
+
 	
-	List Users = new ArrayList()
-	static hasMany = [Users:User]
+
+	static hasMany = [admin:AdminOfProject, member:MemberOfProject]
 	
-    static constraints = {
-		String name
-    }
+	String toString(){
+		name
+	}
 }

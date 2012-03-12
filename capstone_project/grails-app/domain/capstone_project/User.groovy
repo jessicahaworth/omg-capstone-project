@@ -7,26 +7,6 @@ import org.grails.comments.Commentable;
 
 class User implements Commentable
 {
-
-	String login
-	String password
-	String role = "user"
-	String firstName
-	String lastName
-	//String phoneNumber
-	String emailAddress
-	List skills = new ArrayList()
-	static hasMany = [skills:Skill]
-	
-	Date dateCreated
-	Date lastUpdated
-	
-	static mapping = {
-		//comments sort: "dateCreated", order:"desc"
-		skills cascade:"all-delete-orphan"
-	}
-
-	//ProfilePage profilePage
 	static constraints = {
 		login(blank:false, nullable:false, unique:true)
 		password(blank:false, password:true)
@@ -35,6 +15,30 @@ class User implements Commentable
 		lastName(blank:false, maxSize:50)
 		emailAddress(email:true)
 	}
+	
+	//List skills = new ArrayList()
+	static hasMany = [	hasSkill:UserHasSkill,
+						memberOf:MemberOfProject,
+						adminOf:AdminOfProject ]
+	
+	
+	
+	String login
+	String password
+	String role = "user"
+	String firstName
+	String lastName
+	//String phoneNumber
+	String emailAddress
+	
+	Date dateCreated
+	Date lastUpdated
+	
+	static mapping = {
+		//comments sort: "dateCreated", order:"desc"
+		skills cascade:"all-delete-orphan"
+	}
+	
 	
 	static transients = ['admin']
 	boolean isAdmin(){

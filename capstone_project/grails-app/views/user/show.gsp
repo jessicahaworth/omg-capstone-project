@@ -77,11 +77,33 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${userInstance?.adminOf}">
+				<li class="fieldcontain">
+					<span id="adminOf-label" class="property-label"><g:message code="user.adminOf.label" default="Admin Of" /></span>
+					
+						<g:each in="${userInstance.adminOf}" var="a">
+						<span class="property-value" aria-labelledby="adminOf-label"><g:link controller="adminOfProject" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${userInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="user.dateCreated.label" default="Date Created" /></span>
 					
 						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${userInstance?.dateCreated}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.hasSkill}">
+				<li class="fieldcontain">
+					<span id="hasSkill-label" class="property-label"><g:message code="user.hasSkill.label" default="Has Skill" /></span>
+					
+						<g:each in="${userInstance.hasSkill}" var="h">
+						<span class="property-value" aria-labelledby="hasSkill-label"><g:link controller="userHasSkill" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -95,25 +117,15 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.skills}">
-				<table>
-				<tbody>
-				<tr class="prop">
-                            <td valign="top" class="name"><g:message code="user.skills.label" default="Skills" /></td>
-                            
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${userInstance.skills}" var="p">
-                                    <li>${p?.encodeAsHTML()}</li>
-                                </g:each>
-                                </ul>
-                            </td>
-                            
-                        </tr>
-                    
-                    </tbody>
-                    </tbody>
-                    </table>
+				<g:if test="${userInstance?.memberOf}">
+				<li class="fieldcontain">
+					<span id="memberOf-label" class="property-label"><g:message code="user.memberOf.label" default="Member Of" /></span>
+					
+						<g:each in="${userInstance.memberOf}" var="m">
+						<span class="property-value" aria-labelledby="memberOf-label"><g:link controller="memberOfProject" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
 				</g:if>
 			
 			</ol>
@@ -124,9 +136,6 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
-		</div>
-		<div>
-			<comments:render bean="${userInstance}" />
 		</div>
 	</body>
 </html>

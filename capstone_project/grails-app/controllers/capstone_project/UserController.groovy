@@ -6,34 +6,11 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-	def login = {}
-	
-	//def skillSet = params.list("Java","C++", "HTML", "PERL", "Prolog", "C", "Javascript", "Python", "Visual Basic", "LUA", "Cobalt", "Grails", "Fortran", "Rails", "Assembly")
-	
-	def beforeInterceptor = beforeInterceptor = [action:this.&auth, except:['login', 'logout', 'authenticate']]
-	
-	def auth() {
-		if(!session.user) {
-			redirect(controller:"user", action:"login")
-			return false
-		}
-		if(!session.user.admin){
-			flash.message = "Tsk tsk—admins only"
-			redirect(controller:"user", action:"list")
-			return false
-		}
+	def login()
+	{
+		
 	}
 	
-	def debug(){
-		println "DEBUG: ${actionUri} called."
-		println "DEBUG: ${params}"
-	}
-	
-	def logout = {
-		flash.message = "Goodbye ${session.user.login}"
-		session.user = null
-		redirect(action:"login")
-	}
 	def authenticate = {
 		def user = User.findByLoginAndPassword(params.login,params.password)
 		if(user){
@@ -62,19 +39,6 @@ class UserController {
 
     def save() {
         def userInstance = new User(params)
-		
-		def _toBeRemoved = userInstance.skills.findAll {!it}
-		
-		if (_toBeRemoved) {
-			userInstance.skills.removeAll(_toBeRemoved)
-		 }
-		
-		//update my indexes
-		userInstance.skills.eachWithIndex(){skl, i ->
-			if(skl)
-				skl.index = i
-		}
-		
         if (!userInstance.save(flush: true)) {
             render(view: "create", model: [userInstance: userInstance])
             return
@@ -83,20 +47,9 @@ class UserController {
 		flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
         redirect(action: "show", id: userInstance.id)
     }
-	
-	def disp(){
-		def userInstance = User.get(params.userID)
-		if(!userInstance){
-			flash.message = message("Could not find ${params.login}")
-			redirect(action:"list")
-		}	
-		
-		[userInstance: userInstance]111
-	}
-	
+
     def show() {
         def userInstance = User.get(params.id)
-		
         if (!userInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
             redirect(action: "list")
@@ -108,7 +61,6 @@ class UserController {
 
     def edit() {
         def userInstance = User.get(params.id)
-	
         if (!userInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
             redirect(action: "list")
@@ -138,20 +90,7 @@ class UserController {
         }
 
         userInstance.properties = params
-		
-		def _toBeDeleted = userInstance.skills.findAll {it?.deleted || !it}
-		
-		// if there are phones to be deleted remove them all
-		if (_toBeDeleted) {
-			userInstance.skills.removeAll(_toBeDeleted)
-		}
-		
-		//update my indexes
-		userInstance.skills.eachWithIndex(){skl, i ->
-			if(skl)
-				skl.index = i
-		}
-		
+
         if (!userInstance.save(flush: true)) {
             render(view: "edit", model: [userInstance: userInstance])
             return

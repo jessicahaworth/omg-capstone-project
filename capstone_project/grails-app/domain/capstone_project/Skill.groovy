@@ -4,10 +4,10 @@ class Skill{
 	
 	String s_name
 	boolean deleted
-	int index
+	//int index
 	
 	static transients = ['deleted']
-	static belongsTo = [user:User]
+	static hasMany = [skilledUser:UserHasSkill]
 	
 	def String toString(){
 		return "${s_name}"
@@ -18,7 +18,7 @@ class Skill{
 	}
 
 	static constraints = {
-		index(blank:false, min:0)
+		//index(blank:false, min:0)
 		s_name(blank:false)
 	}
 }
