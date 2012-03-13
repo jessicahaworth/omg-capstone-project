@@ -5,14 +5,40 @@ import org.springframework.dao.DataIntegrityViolationException
 class SkillController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def addSkill(params)
+	{
 
+		params.user = User.get(params.user_id)
+		params.skill = Skill.get(params.skill_id)
+		System.out.println( params )
+		def userskill = new UserHasSkill(params)
+		def query = UserHasSkill.where {
+			user == params.user && skill == params.skill		
+			
+		}
+		 
+		if ( !query.find() )
+			userskill.save(flush: true);
+		redirect(action: "list" )
+	}
+	
     def index() {
         redirect(action: "list", params: params)
     }
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [skillInstanceList: Skill.list(params), skillInstanceTotal: Skill.count()]
+        
+		
+		def query = UserHasSkill.where {
+			user == session.user		
+		}
+		def userskillslist = query.list() 
+		
+		[skillInstanceList: Skill.list(params), 
+			skillInstanceTotal: Skill.count(),
+			userskills:userskillslist]
     }
 
     def create() {

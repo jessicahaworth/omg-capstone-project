@@ -65,6 +65,14 @@ class BootStrap {
 				println testSkill.errors
 			}
 			
+			def testSkill2 = new Skill(
+				s_name:"testSkill2",
+				)
+			testSkill2.save();
+			if(testSkill2.hasErrors()){
+				println testSkill2.errors
+			}
+			
 		}
     }
     def destroy = {

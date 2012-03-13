@@ -32,7 +32,8 @@
 				<g:each in="${skillInstanceList}" status="i" var="skillInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${skillInstance.id}">${fieldValue(bean: skillInstance, field: "s_name")}</g:link></td>
+						<td><g:link action = "show" id="${skillInstance.id}">${fieldValue(bean: skillInstance, field: "s_name")}</g:link></td>
+						<td><g:link action = "addSkill" params = '[user_id:"${session.user.id}", skill_id :"${skillInstance.id}"]'  >Add Skill</g:link></td>
 					
 					</tr>
 				</g:each>
