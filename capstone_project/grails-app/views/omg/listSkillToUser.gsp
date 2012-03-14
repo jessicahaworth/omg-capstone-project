@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="s_name" title="${message(code: 'skill.s_name.label', default: 'Sname')}" />
+						<g:sortableColumn property="s_name" title="${message(code: 'skill.s_name.label', default: 'Skill Name')}" />
 					
 					</tr>
 				</thead>
