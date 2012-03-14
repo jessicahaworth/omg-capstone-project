@@ -30,6 +30,8 @@
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'memberOfProject.dateCreated.label', default: 'Date Created')}" />
 					
+						<g:sortableColumn property="admin" title="${message(code: 'memberOfProject.admin.label', default: 'Admin')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -41,6 +43,8 @@
 						<td>${fieldValue(bean: memberOfProjectInstance, field: "project")}</td>
 					
 						<td><g:formatDate date="${memberOfProjectInstance.dateCreated}" /></td>
+					
+						<td><g:formatBoolean boolean="${memberOfProjectInstance.admin}" /></td>
 					
 					</tr>
 				</g:each>

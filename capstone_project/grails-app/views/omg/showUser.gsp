@@ -1,4 +1,3 @@
-
 <%@ page import="capstone_project.User" %>
 <!doctype html>
 <html>
@@ -8,14 +7,7 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		<g:render template="/layouts/navBar" />
 		<div id="show-user" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -86,22 +78,22 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.hasSkill}">
-				<li class="fieldcontain">
-					<span id="hasSkill-label" class="property-label"><g:message code="user.hasSkill.label" default="Has Skill" /></span>
-					
-						<g:each in="${userInstance.hasSkill}" var="h">
-						<span class="property-value" aria-labelledby="hasSkill-label"><g:link controller="userSkill" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${userInstance?.lastUpdated}">
 				<li class="fieldcontain">
 					<span id="lastUpdated-label" class="property-label"><g:message code="user.lastUpdated.label" default="Last Updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${userInstance?.lastUpdated}" /></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${userInstance?.hasSkill}">
+				<li class="fieldcontain">
+					<span id="hasSkill-label" class="property-label"><g:message code="user.hasSkill.label" default="Has Skill" /></span>
+					
+						<g:each in="${userInstance.hasSkill}" var="h">
+						<span class="property-value" aria-labelledby="hasSkill-label"><g:link controller="omg" action="showUser" id="${h.id}">${h.skill.s_name}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -111,21 +103,16 @@
 					<span id="memberOf-label" class="property-label"><g:message code="user.memberOf.label" default="Member Of" /></span>
 					
 						<g:each in="${userInstance.memberOf}" var="m">
-						<span class="property-value" aria-labelledby="memberOf-label"><g:link controller="memberOfProject" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="memberOf-label"><g:link controller="omg" action="showProject" id="${m.project.id}">${m.project.name}</g:link></span>
 						</g:each>
 					
 				</li>
 				</g:if>
 			
 			</ol>
-			<g:form>
-				<fieldset class="buttons">
-					<g:hiddenField name="id" value="${userInstance?.id}" />
-					<g:link class="edit" action="edit" id="${userInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
 		</div>
-		<g:render template="/layouts/userButtons" />
+		<g:if test="${session.user.id == userInstance.id}">
+			<g:render template="/layouts/userButtons" />
+		</g:if>
 	</body>
 </html>

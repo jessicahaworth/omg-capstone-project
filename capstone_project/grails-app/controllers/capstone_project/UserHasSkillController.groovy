@@ -2,24 +2,32 @@ package capstone_project
 
 import org.springframework.dao.DataIntegrityViolationException
 
-class UserHasSkillController {
+class UserHasSkillController 
+{
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	
     def index() {
         redirect(action: "list", params: params)
     }
 
+	
+	
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [userHasSkillInstanceList: UserHasSkill.list(params), userHasSkillInstanceTotal: UserHasSkill.count()]
     }
 
     def create() {
+		System.out.println("create:"+params)
         [userHasSkillInstance: new UserHasSkill(params)]
+
+		//redirect(action:"save", )
     }
 
     def save() {
+		System.out.println("save:"+params);
         def userHasSkillInstance = new UserHasSkill(params)
         if (!userHasSkillInstance.save(flush: true)) {
             render(view: "create", model: [userHasSkillInstance: userHasSkillInstance])

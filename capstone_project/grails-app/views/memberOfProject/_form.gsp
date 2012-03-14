@@ -18,3 +18,11 @@
 	<g:select id="project" name="project.id" from="${capstone_project.Project.list()}" optionKey="id" required="" value="${memberOfProjectInstance?.project?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: memberOfProjectInstance, field: 'admin', 'error')} ">
+	<label for="admin">
+		<g:message code="memberOfProject.admin.label" default="Admin" />
+		
+	</label>
+	<g:checkBox name="admin" value="${memberOfProjectInstance?.admin}" />
+</div>
+

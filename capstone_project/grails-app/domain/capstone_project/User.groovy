@@ -17,9 +17,8 @@ class User implements Commentable
 	}
 	
 	//List skills = new ArrayList()
-	static hasMany = [	hasSkill:UserHasSkill,
-						memberOf:MemberOfProject,
-						adminOf:AdminOfProject ]
+	static hasMany = [	hasSkill:UserSkill,
+						memberOf:MemberOfProject]
 	
 	
 	
