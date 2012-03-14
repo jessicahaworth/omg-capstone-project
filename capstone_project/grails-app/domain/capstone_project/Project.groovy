@@ -23,7 +23,7 @@ class Project implements Commentable
 
 	
 
-	static hasMany = [admin:AdminOfProject, member:MemberOfProject]
+	static hasMany = [projectSkill:ProjectSkill, member:MemberOfProject]
 	
 	String toString(){
 		name

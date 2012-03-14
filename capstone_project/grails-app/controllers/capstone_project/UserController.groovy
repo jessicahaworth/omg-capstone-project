@@ -6,27 +6,31 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-	def login()
-	{
-		
+    def index() {
+        redirect(action: "list", params: params)
+    }
+	
+	def login = {}
+	
+	def logout = {
+		flash.message = "Goodbye ${session.user.login}"
+		session.user = null
+		redirect(action:"login")
 	}
 	
+	/***********************************************************************/
 	def authenticate = {
 		def user = User.findByLoginAndPassword(params.login,params.password)
 		if(user){
 			session.user = user
 			flash.message = "Hello ${user.login}!"
-			redirect(controller:"user", action:"show", id:user.id)
+			redirect(controller:"omg", action:"showUser", id:user.id)
 		}
 		else{
 			flash.message = "Sorry, ${params.login}. Please try again."
 			redirect(action:"login")
 		}
 	}
-	
-    def index() {
-        redirect(action: "list", params: params)
-    }
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)

@@ -1,4 +1,3 @@
-
 <%@ page import="capstone_project.User" %>
 <!doctype html>
 <html>
@@ -86,22 +85,22 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.hasSkill}">
-				<li class="fieldcontain">
-					<span id="hasSkill-label" class="property-label"><g:message code="user.hasSkill.label" default="Has Skill" /></span>
-					
-						<g:each in="${userInstance.hasSkill}" var="h">
-						<span class="property-value" aria-labelledby="hasSkill-label"><g:link controller="userSkill" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${userInstance?.lastUpdated}">
 				<li class="fieldcontain">
 					<span id="lastUpdated-label" class="property-label"><g:message code="user.lastUpdated.label" default="Last Updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${userInstance?.lastUpdated}" /></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${userInstance?.hasSkill}">
+				<li class="fieldcontain">
+					<span id="hasSkill-label" class="property-label"><g:message code="user.hasSkill.label" default="Has Skill" /></span>
+					
+						<g:each in="${userInstance.hasSkill}" var="h">
+						<span class="property-value" aria-labelledby="hasSkill-label"><g:link controller="omg" action="showUser" id="${h.id}">${h.skill.s_name}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -111,13 +110,14 @@
 					<span id="memberOf-label" class="property-label"><g:message code="user.memberOf.label" default="Member Of" /></span>
 					
 						<g:each in="${userInstance.memberOf}" var="m">
-						<span class="property-value" aria-labelledby="memberOf-label"><g:link controller="memberOfProject" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="memberOf-label"><g:link controller="omg" action="showProject" id="${m.project.id}">${m.project.name}</g:link></span>
 						</g:each>
 					
 				</li>
 				</g:if>
 			
 			</ol>
+			<g:if test="${session.user.id == userInstance.id}">
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${userInstance?.id}" />
@@ -125,7 +125,10 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+			</g:if>
 		</div>
-		<g:render template="/layouts/userButtons" />
+		<g:if test="${session.user.id == userInstance.id}">
+			<g:render template="/layouts/userButtons" />
+		</g:if>
 	</body>
 </html>

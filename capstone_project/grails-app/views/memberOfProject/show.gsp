@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${memberOfProjectInstance?.admin}">
+				<li class="fieldcontain">
+					<span id="admin-label" class="property-label"><g:message code="memberOfProject.admin.label" default="Admin" /></span>
+					
+						<span class="property-value" aria-labelledby="admin-label"><g:formatBoolean boolean="${memberOfProjectInstance?.admin}" /></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

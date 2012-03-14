@@ -32,12 +32,23 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${skillInstance?.skilledUser}">
+				<g:if test="${skillInstance?.projectSkill}">
 				<li class="fieldcontain">
-					<span id="skilledUser-label" class="property-label"><g:message code="skill.skilledUser.label" default="Skilled User" /></span>
+					<span id="projectSkill-label" class="property-label"><g:message code="skill.projectSkill.label" default="Project Skill" /></span>
 					
-						<g:each in="${skillInstance.skilledUser}" var="s">
-						<span class="property-value" aria-labelledby="skilledUser-label"><g:link controller="userHasSkill" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						<g:each in="${skillInstance.projectSkill}" var="p">
+						<span class="property-value" aria-labelledby="projectSkill-label"><g:link controller="projectSkill" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${skillInstance?.userSkill}">
+				<li class="fieldcontain">
+					<span id="userSkill-label" class="property-label"><g:message code="skill.userSkill.label" default="User Skill" /></span>
+					
+						<g:each in="${skillInstance.userSkill}" var="u">
+						<span class="property-value" aria-labelledby="userSkill-label"><g:link controller="userSkill" action="show" id="${u.id}">${u?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

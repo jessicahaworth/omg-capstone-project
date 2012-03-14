@@ -33,7 +33,15 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${skillInstance.id}">${fieldValue(bean: skillInstance, field: "s_name")}</g:link></td>
-					
+						
+						<td>
+							<g:form>
+								<fieldset class="buttons"> 
+									<g:link controller="omg" action="addSkillToUser" params = '[skill_id:"${skillInstance.id}", user_id: "${session.user.id}"]'><div style="border:1px dashed grey;">Add</div></g:link>
+								</fieldset>
+							</g:form>
+						</td>
+						
 					</tr>
 				</g:each>
 				</tbody>

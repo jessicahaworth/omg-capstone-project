@@ -18,23 +18,6 @@
 	<g:textField name="description" value="${projectInstance?.description}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'admin', 'error')} ">
-	<label for="admin">
-		<g:message code="project.admin.label" default="Admin" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${projectInstance?.admin?}" var="a">
-    <li><g:link controller="adminOfProject" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="adminOfProject" action="create" params="['project.id': projectInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'adminOfProject.label', default: 'AdminOfProject')])}</g:link>
-</li>
-</ul>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'member', 'error')} ">
 	<label for="member">
 		<g:message code="project.member.label" default="Member" />
@@ -47,6 +30,23 @@
 </g:each>
 <li class="add">
 <g:link controller="memberOfProject" action="create" params="['project.id': projectInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'memberOfProject.label', default: 'MemberOfProject')])}</g:link>
+</li>
+</ul>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'projectSkill', 'error')} ">
+	<label for="projectSkill">
+		<g:message code="project.projectSkill.label" default="Project Skill" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${projectInstance?.projectSkill?}" var="p">
+    <li><g:link controller="projectSkill" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="projectSkill" action="create" params="['project.id': projectInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'projectSkill.label', default: 'ProjectSkill')])}</g:link>
 </li>
 </ul>
 

@@ -14,10 +14,10 @@ class MemberOfProject
 	
 	static belongsTo = [user:User, project:Project]
 	
-	//Boolean paid
+	Boolean admin
 	Date dateCreated
 	
 	String toString(){
-		project.name
+		user.firstName + " " + user.lastName + " is a member of " + project.name
 	}
 }

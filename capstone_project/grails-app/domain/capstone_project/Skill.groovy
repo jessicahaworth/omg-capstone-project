@@ -7,7 +7,7 @@ class Skill{
 	//int index
 	
 	static transients = ['deleted']
-	static hasMany = [skilledUser:UserHasSkill]
+	static hasMany = [userSkill:UserSkill, projectSkill:ProjectSkill]
 	
 	def String toString(){
 		return "${s_name}"

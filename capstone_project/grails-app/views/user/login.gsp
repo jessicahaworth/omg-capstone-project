@@ -45,5 +45,11 @@
 			</div>
 		</g:form>
 	</div>
+	<g:link controller="omg" action="createUser">
+				<div style="border:1px dashed grey;">
+					Register
+				</div>
+	</g:link>
 	</body>
+	
 </html>

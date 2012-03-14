@@ -1,4 +1,3 @@
-
 <%@ page import="capstone_project.Project" %>
 <!doctype html>
 <html>
@@ -64,7 +63,7 @@
 					<span id="member-label" class="property-label"><g:message code="project.member.label" default="Member" /></span>
 					
 						<g:each in="${projectInstance.member}" var="m">
-						<span class="property-value" aria-labelledby="member-label"><g:link controller="memberOfProject" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="member-label"><g:link controller="omg" action="showUser" id="${m.user.id}">${m.user.firstName+" "+m.user.lastName}</g:link></span>
 						</g:each>
 					
 				</li>
@@ -75,13 +74,14 @@
 					<span id="projectSkill-label" class="property-label"><g:message code="project.projectSkill.label" default="Project Skill" /></span>
 					
 						<g:each in="${projectInstance.projectSkill}" var="p">
-						<span class="property-value" aria-labelledby="projectSkill-label"><g:link controller="projectSkill" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="projectSkill-label"><g:link controller="omg" action="showProject" id="${p.project.id}">${p.skill.s_name}</g:link></span>
 						</g:each>
 					
 				</li>
 				</g:if>
 				
 			</ol>
+			<g:if test="${session.userAdmins.toString().contains(projectInstance.name+",") || session.userAdmins.toString().contains(projectInstance.name+"]")}">
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${projectInstance?.id}" />
@@ -89,7 +89,13 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+			</g:if>
 		</div>
-		<g:render template="/layouts/projectButtons" />
+			<!-- TODO  -->
+			
+			<g:if test="${session.userAdmins.toString().contains(projectInstance.name+",") || session.userAdmins.toString().contains(projectInstance.name+"]")}">
+				<g:render template="/layouts/projectButtons" />
+			</g:if>
+			<!-- TODO  -->
 	</body>
 </html>
