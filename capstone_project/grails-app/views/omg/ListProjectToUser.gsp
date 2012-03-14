@@ -10,7 +10,7 @@
 	<body>
 		<g:render template="/layouts/navBar" />
 		<div id="list-project" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1>Join Projects</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

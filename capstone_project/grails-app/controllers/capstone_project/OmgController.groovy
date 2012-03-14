@@ -186,12 +186,17 @@ class OmgController {
 			def userProjects = MemberOfProject.findAllWhere(user: session.user)
 			//System.out.println("userprojects: "+ userProjects );
 			
+			def projectSkills = ProjectSkill.findAllWhere(project: projectInstance)
+			
 			session.userAdmins = userAdmins
 			session.userProjects = userProjects;
 			
+			//System.out.println(projectSkills.toString());
+			
 			[skillInstanceList: Skill.list(params), 
 				skillInstanceTotal: Skill.count(),
-				projectInstance: projectInstance]
+				projectInstance: projectInstance,
+				projectSkills: projectSkills]
 		}
 	}
 	
@@ -238,8 +243,12 @@ class OmgController {
 			def userProjects = MemberOfProject.findAllWhere(user: session.user)
 			//System.out.println("userprojects: "+ userProjects );
 			
+			def userSkills = UserSkill.findAllWhere(user:session.user)
+			//System.out.println("userskills: " + userSkills);
+			
 			session.userAdmins = userAdmins
-			session.userProjects = userProjects;
+			session.userProjects = userProjects
+			session.userSkills = userSkills
 			
 			params.max = Math.min(params.max ? params.int('max') : 10, 100)
 			[skillInstanceList: Skill.list(params), skillInstanceTotal: Skill.count()]		
