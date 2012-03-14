@@ -65,6 +65,7 @@
 			</ul>
 			<h2>Resources</h2>
 			<ul>
+			<li><a href="http://omahamakergroup.org/pay-dues/">Pay dues</a></li>
 				<li><a href="http://webchat.freenode.net/?channels=omahamaker&#038;uio=OT10cnVlJjEyPXRydWU62" title="irc.freenode.net#omahamaker">#omahamaker IRC Channel</a></li>
 				<li><a href="http://omahamakergroup.org/directions-to-the-space/" rel="me">Directions to the Space</a></li>
 				<li><a href="https://docs.google.com/spreadsheet/ccc?key=0AiSDs5PearUjdC1lM0hEVEh5bzRUYWxFd2tKQ0ZacUE&#038;hl=en_US" title="A list of useful stuff, both in the Makery and at people&#8217;s homes&#8230;if you need it&#8230;ask for it!">Equipment Inventory</a></li>
