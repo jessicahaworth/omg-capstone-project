@@ -24,15 +24,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.password}">
-				<li class="fieldcontain">
-					<span id="password-label" class="property-label"><g:message code="user.password.label" default="Password" /></span>
-					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${userInstance}" field="password"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${userInstance?.role}">
 				<li class="fieldcontain">
 					<span id="role-label" class="property-label"><g:message code="user.role.label" default="Role" /></span>
@@ -92,7 +83,7 @@
 					<span id="hasSkill-label" class="property-label"><g:message code="user.hasSkill.label" default="Has Skill" /></span>
 					
 						<g:each in="${userInstance.hasSkill}" var="h">
-						<span class="property-value" aria-labelledby="hasSkill-label"><g:link controller="omg" action="showUser" id="${h.id}">${h.skill.s_name}</g:link></span>
+						<span class="property-value" aria-labelledby="hasSkill-label"><g:link controller="omg" action="showSkill" id="${h.skill.id}">${h.skill.s_name}</g:link></span>
 						</g:each>
 					
 				</li>
@@ -103,9 +94,12 @@
 					<span id="memberOf-label" class="property-label"><g:message code="user.memberOf.label" default="Member Of" /></span>
 					
 						<g:each in="${userInstance.memberOf}" var="m">
-						<span class="property-value" aria-labelledby="memberOf-label"><g:link controller="omg" action="showProject" id="${m.project.id}">${m.project.name}</g:link></span>
+						<span class="property-value" aria-labelledby="memberOf-label"><g:link controller="omg" action="showProject" id="${m.project.id}">${m.project.name}</g:link>
+						<g:if test = "${session.userAdmins.toString().contains(m.project.name+",") || session.userAdmins.toString().contains(m.project.name+"]")}">
+						admin
+						</g:if>
+						</span>
 						</g:each>
-					
 				</li>
 				</g:if>
 			
@@ -114,5 +108,8 @@
 		<g:if test="${session.user.id == userInstance.id}">
 			<g:render template="/layouts/userButtons" />
 		</g:if>
+		<div>
+			<comments:render bean="${userInstance}" />
+		</div>
 	</body>
 </html>

@@ -81,6 +81,9 @@
 			<g:if test="${session.userAdmins.toString().contains(projectInstance.name+",") || session.userAdmins.toString().contains(projectInstance.name+"]")}">
 				<g:render template="/layouts/projectButtons" />
 			</g:if>
+			<div>
+			<comments:render bean="${projectInstance}" />
+		</div>
 			<!-- TODO  -->
 	</body>
 </html>

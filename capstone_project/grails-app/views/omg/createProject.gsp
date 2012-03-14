@@ -7,7 +7,7 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<g:render template="/layouts/navBar" />
+		
 		<div id="create-project" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -20,14 +20,15 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form action="save" >
-				<fieldset class="form">
-					<g:render template="form"/>
+			<g:form action="saveProject" >
+				<fieldset class="formProject">
+					<g:render template="formProject"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="saveProject" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
 			</g:form>
 		</div>
+		
 	</body>
 </html>

@@ -7,7 +7,7 @@
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<g:render template="/layouts/navBar" />
+		
 		
 		<div id="edit-project" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>

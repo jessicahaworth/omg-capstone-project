@@ -41,11 +41,13 @@
 						<td><g:formatDate date="${projectInstance.lastUpdated}" /></td>
 					
 						<td>
+							<g:if test = "${!(session.userProjects.toString().contains(projectInstance.name+",") || session.userProjects.toString().contains(projectInstance.name+"]"))}">
 							<g:form>
 								<fieldset class="buttons"> 
 									<g:link controller="omg" action="addProjectToUser" params = '[project_id:"${projectInstance.id}", user_id: "${session.user.id}"]'><div style="border:1px dashed grey;">Add</div></g:link>
 								</fieldset>
 							</g:form>
+							</g:if>
 						</td>
 					</tr>
 				</g:each>
