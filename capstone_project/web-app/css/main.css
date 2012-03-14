@@ -36,7 +36,7 @@ body {
 	background: #ffffff;
 	color: #333333;
 	margin: 0 auto;
-	max-width: 960px;
+	max-width: 1200px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
 	   -moz-box-shadow: 0 0 0.3em #255b17;
 	-webkit-box-shadow: 0 0 0.3em #255b17;
@@ -395,7 +395,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
-	width: 100%;
+	width: 99%;
 	margin-bottom: 1em;
 }
 

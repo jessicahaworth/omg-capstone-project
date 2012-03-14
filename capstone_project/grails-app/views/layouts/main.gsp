@@ -12,7 +12,7 @@
 				border: .2em solid #fff;
 				margin: 2em 2em 1em;
 				padding: 1em;
-				width: 12em;
+				width: 10em;
 				float: left;
 				-moz-box-shadow: 0px 0px 1.25em #ccc;
 				-webkit-box-shadow: 0px 0px 1.25em #ccc;
@@ -45,9 +45,9 @@
 			<h2>Contributors</h2>
 			<ul>
 				<li><a href="http://davestech.blogspot.com/" title="Simply documentation of projects I start and sometimes even finish.">Dave&#8217;s Tech Blog</a></li>
-				<li><a href="http://www.fusselman.org/wp" title="Technology, Travel and Everything Else">Fusselman.org » Omaha Maker Group</a></li>
+				<li><a href="http://www.fusselman.org/wp" title="Technology, Travel and Everything Else">Fusselman.org</a></li>
 				<li><a href="http://grickle.org" title="News, musings, and other ramblings of James Harr">Grickle Blag</a></li>
-				<li><a href="http://www.rspoon.com" title="I make stuff">RustySpoon Random Stuff</a></li>
+				<li><a href="http://www.rspoon.com" title="I make stuff">RustySpoon</a></li>
 
 			</ul>
 
@@ -75,7 +75,7 @@
 			</ul>
 		</div>
 
-		<div id="page-body" role="main">
+		<div id="page-body" role="main" width="90%">
 		<g:layoutBody/>
 		</div>
 		<div class="footer" role="contentinfo"></div>
