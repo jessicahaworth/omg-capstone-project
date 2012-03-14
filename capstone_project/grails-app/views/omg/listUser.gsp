@@ -1,3 +1,4 @@
+
 <%@ page import="capstone_project.User" %>
 <!doctype html>
 <html>
@@ -8,7 +9,6 @@
 	</head>
 	<body>
 		<g:render template="/layouts/navBar" />
-		
 		<div id="list-user" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -19,6 +19,8 @@
 					<tr>
 					
 						<g:sortableColumn property="login" title="${message(code: 'user.login.label', default: 'Login')}" />
+					
+					
 					
 						<g:sortableColumn property="role" title="${message(code: 'user.role.label', default: 'Role')}" />
 					
@@ -33,8 +35,10 @@
 				<tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						
-						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "login")}</g:link></td>
+					
+						<td><g:link action="showUser" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "login")}</g:link></td>
+					
+
 					
 						<td>${fieldValue(bean: userInstance, field: "role")}</td>
 					
@@ -43,14 +47,6 @@
 						<td>${fieldValue(bean: userInstance, field: "lastName")}</td>
 					
 						<td>${fieldValue(bean: userInstance, field: "emailAddress")}</td>
-						
-						<td>
-							<g:form>
-								<fieldset class="buttons"> 
-									<g:link controller="omg" action="addUserToProject" params = '[user_id:"${userInstance.id}", project_id: "${projectInstance.id}"]'><div style="border:1px dashed grey;">Add</div></g:link>
-								</fieldset>
-							</g:form>
-						</td>
 					
 					</tr>
 				</g:each>
@@ -62,4 +58,3 @@
 		</div>
 	</body>
 </html>
-			

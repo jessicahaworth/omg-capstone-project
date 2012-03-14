@@ -51,6 +51,11 @@ class OmgController {
 	
 	
 	//custom lists
+	def listUser()
+	{
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		[userInstanceList: User.list(params), userInstanceTotal: User.count()]
+	}
     def listUserToProject(params)
 	{
 		System.out.println(params);
@@ -226,6 +231,24 @@ class OmgController {
 
 		flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
 		redirect(action: "showUser", id: userInstance.id)
+	}
+	
+	def createProject()
+	{
+		[projectInstance: new Project(params)]
+	}
+	
+	def saveProject()
+	{
+		def projectInstance = new Project(params)
+		if (!projectInstance.save(flush: true)) {
+			render(view: "create", model: [projectInstance: projectInstance])
+			return
+		}
+
+		flash.message = message(code: 'default.created.message', args: [message(code: 'project.label', default: 'Project'), projectInstance.id])
+		redirect(action: "showProject", id: projectInstance.id)
+		
 	}
 	
 	def editProject()
