@@ -16,6 +16,11 @@ class OmgController {
 			redirect(action: "showUser", id:session.user.id)
 	}
 	
+	def calendarTest()
+	{
+		
+	}
+	
 	def login = {}
 	
 	def logout = {
