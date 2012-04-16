@@ -14,6 +14,7 @@ class User implements Commentable
 		firstName(blank:false, maxSize:50)
 		lastName(blank:false, maxSize:50)
 		emailAddress(email:true)
+		about(maxSize:1000)
 	}
 	
 	//List skills = new ArrayList()
@@ -29,6 +30,7 @@ class User implements Commentable
 	String lastName
 	//String phoneNumber
 	String emailAddress
+	String about = ""
 	
 	Date dateCreated
 	Date lastUpdated
