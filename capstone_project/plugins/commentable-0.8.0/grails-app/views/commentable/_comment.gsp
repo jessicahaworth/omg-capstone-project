@@ -10,7 +10,7 @@
 	<plugin:isAvailable name="avatar">
 		<div class="avatar">	
 			<avatar:gravatar cssClass="commentAvatar" size="50"
-			        email="${comment?.poster.email}" gravatarRating="R"
+			        email="${comment?.poster.emailAddress}" gravatarRating="R"
 			        defaultGravatarUrl="${createLinkTo(absolute: true, dir:'/images',file:'grails-icon.png')}"/>
 		</div>			
 	</plugin:isAvailable>
