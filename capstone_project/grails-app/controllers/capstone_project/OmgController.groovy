@@ -335,23 +335,34 @@ class OmgController {
 	
 	def createUser()
 	{
-		if (session.user == null)
+//		if (session.user == null)
+//		{
+//			redirect(action: "login")
+//		}
+		// don't allow registration while logged in
+		if (session.user)
 		{
-			redirect(action: "login")
+			redirect(action: "showUser", id:session.user.id)
 		}
 		else
 		{
 			[userInstance: new User(params)]
+//			def user = User.findByLoginAndPassword(params.login,params.password)
+//			if(user){
+//				session.user = user
+//				flash.message = "Hello ${user.login}!"
+//				redirect(controller:"omg", action:"showUser", id:user.id)
+//			}
 		}
 	}
 	
 	def saveUser() {
-		if (session.user == null)
-		{
-			redirect(action: "login")
-		}
-		else
-		{
+//		if (session.user == null)
+//		{
+//			redirect(action: "login")
+//		}
+//		else
+//		{
 			def userInstance = new User(params)
 			if (!userInstance.save(flush: true)) {
 				render(view: "createUser", model: [userInstance: userInstance])
@@ -361,7 +372,7 @@ class OmgController {
 			flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
 			redirect(controller:"user", action: "login")
 		}
-	}
+//	}
 	
 	def editUser() {
 		if (session.user == null)
