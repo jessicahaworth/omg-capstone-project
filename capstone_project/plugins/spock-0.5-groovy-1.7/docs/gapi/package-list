@@ -1,0 +1,14 @@
+DefaultPackage
+grails-app.conf
+grails-app.controllers
+grails-app.domain
+grails-app.services
+plugins.hibernate-1.2.0
+plugins.hibernate-1.2.0.scripts
+plugins.tomcat-1.2.2
+plugins.tomcat-1.2.2.scripts
+plugins.tomcat-1.2.2.src.groovy.org.grails.tomcat
+scripts
+target.plugin-info
+test.integration
+test.unit

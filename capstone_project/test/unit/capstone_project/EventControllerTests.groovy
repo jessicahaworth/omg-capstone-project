@@ -1,7 +1,7 @@
 package capstone_project
 
 
-
+/*
 import org.junit.*
 import grails.test.mixin.*
 
@@ -157,3 +157,4 @@ class EventControllerTests {
         assert response.redirectedUrl == '/event/list'
     }
 }
+*/
