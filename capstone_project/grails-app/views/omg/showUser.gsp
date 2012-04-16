@@ -1,4 +1,5 @@
 <%@ page import="capstone_project.User" %>
+<%@ page import="com.synergyj.grails.plugins.avatar.AvatarTagLib" %>
 <!doctype html>
 <html>
 	<head>
@@ -9,11 +10,19 @@
 	<body>
 		<g:render template="/layouts/navBar" />
 		<div id="show-user" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h1>
+				<g:message code="default.show.label" args="[entityName]" /> 
+			</h1>
+			<div style="width: 720px;">
+				<div style="float: right; width: 100px;">
+					<avatar:gravatar email="${userInstance.emailAddress}"  alt="lol" size="80" defaultGravatarUrl="${createLinkTo(absolute: true, dir:'/images',file:'default_avatar.png')}" />
+				</div>
+			</div>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list user">
+			
 			
 				<g:if test="${userInstance?.login}">
 				<li class="fieldcontain">
@@ -26,43 +35,24 @@
 				</li>
 				</g:if>
 			
-<%--				<g:if test="${userInstance?.role}">--%>
-<%--				<li class="fieldcontain">--%>
-<%--					<span id="role-label" class="property-label"><g:message code="user.role.label" default="Role" /></span>--%>
-<%--					--%>
-<%--						<span class="property-value" aria-labelledby="role-label"><g:fieldValue bean="${userInstance}" field="role"/></span>--%>
-<%--					--%>
-<%--				</li>--%>
-<%--				</g:if>--%>
-			
 				<g:if test="${userInstance?.firstName}">
 				<li class="fieldcontain">
 					<span id="firstName-label" class="property-label"><g:message code="user.firstName.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="firstName-label"><g:fieldValue bean="${userInstance}" field="firstName"/>
-						
-<%--						<g:message code="user.lastName.label" default="Last Name" />--%>
 					    <g:fieldValue bean="${userInstance}" field="lastName"/>
 						</span>
 					
 				</li>
 				</g:if>
 			
-<%--				<g:if test="${userInstance?.lastName}">--%>
-<%--				<li class="fieldcontain">--%>
-<%--					<span id="lastName-label" class="property-label"><g:message code="user.lastName.label" default="Last Name" /></span>--%>
-<%--					--%>
-<%--						<span class="property-value" aria-labelledby="lastName-label"><g:fieldValue bean="${userInstance}" field="lastName"/></span>--%>
-<%--					--%>
-<%--				</li>--%>
-<%--				</g:if>--%>
 			
 				<g:if test="${userInstance?.emailAddress}">
 				<li class="fieldcontain">
 					<span id="emailAddress-label" class="property-label"><g:message code="user.emailAddress.label" default="Email Address" /></span>
 					
 						<span class="property-value" aria-labelledby="emailAddress-label"><g:fieldValue bean="${userInstance}" field="emailAddress"/></span>
-					
+			
 				</li>
 				</g:if>
 			
