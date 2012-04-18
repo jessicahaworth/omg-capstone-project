@@ -38,18 +38,45 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="buttons">
+			<div class="buttons" align="center">
 				<span class="button">
 					<input type="submit" value="Login" />
 				</span>
 			</div>
 		</g:form>
+		<h1>Register</h1>
+		<g:form action="createUser" method="post" >
+			<div class="dialog">
+				<table style="width: 80%; align:center">
+					<tbody>
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label for="login">User Name:</label>
+							</td>
+							<td valign="top">
+								<input type="text"
+								id="login" name="login"/>
+							</td>
+						</tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label for="password">Password:</label>
+							</td>
+							<td valign="top">
+								<input type="password"
+									id="password" name="password"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="buttons" align="center">
+				<span class="button">
+					<input type="submit" value="Register" />
+				</span>
+			</div>
+		</g:form>
 	</div>
-	<g:link controller="omg" action="createUser">
-				<div style="border:1px dashed grey;">
-					Register
-				</div>
-	</g:link>
 	</body>
 	
 </html>

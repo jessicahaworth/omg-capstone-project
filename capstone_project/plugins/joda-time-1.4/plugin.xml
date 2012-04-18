@@ -1,0 +1,36 @@
+<plugin name='joda-time' version='1.4' grailsVersion='1.3 &gt; *'>
+  <author>Rob Fletcher</author>
+  <authorEmail>rob@freeside.co</authorEmail>
+  <title>Joda-Time Plugin</title>
+  <description>Joda Time integration for Grails</description>
+  <documentation>http://gpc.github.com/grails-joda-time/</documentation>
+  <type>JodaTimeGrailsPlugin</type>
+  <resources>
+    <resource>grails.plugin.jodatime.taglib.DateTimeTagLib</resource>
+    <resource>grails.plugin.jodatime.taglib.DateTimeZoneTagLib</resource>
+    <resource>grails.plugin.jodatime.taglib.FormattingTagLib</resource>
+    <resource>grails.plugin.jodatime.taglib.Html5InputTagLib</resource>
+    <resource>grails.plugin.jodatime.taglib.PeriodTagLib</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+    <repository name='http://repo.grails.org/grails/libs-releases' url='http://repo.grails.org/grails/libs-releases/' />
+    <repository name='http://m2repo.spockframework.org/ext/' url='http://m2repo.spockframework.org/ext/' />
+    <repository name='http://m2repo.spockframework.org/snapshots' url='http://m2repo.spockframework.org/snapshots/' />
+  </repositories>
+  <dependencies>
+    <test>
+      <dependency group='org.hamcrest' name='hamcrest-all' version='1.1' />
+      <dependency group='org.jodd' name='jodd-wot' version='3.3.1' />
+    </test>
+  </dependencies>
+  <plugins />
+  <runtimePluginRequirements>
+    <plugin name='converters' version='1.3 &gt; *' />
+  </runtimePluginRequirements>
+  <behavior />
+</plugin>

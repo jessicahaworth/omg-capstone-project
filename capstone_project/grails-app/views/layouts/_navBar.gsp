@@ -5,6 +5,7 @@
 			<g:link controller="omg" action="listUser"><div style="border:1px dashed grey;">Browse Users</div></g:link>
 			<g:link controller="omg" action="listProjectToUser"><div style="border:1px dashed grey;">Browse Projects</div></g:link>
 			<g:link controller="omg" action="listSkillToUser"><div style="border:1px dashed grey;">Browse Skills</div></g:link>
+			<g:link controller='omg' action='logout'><div style="border:1px dashed grey;">Logout</div></g:link>
 		</fieldset>
 	</g:form>
 </div>

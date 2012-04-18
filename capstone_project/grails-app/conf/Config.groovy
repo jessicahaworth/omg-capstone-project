@@ -94,3 +94,24 @@ log4j = {
 }
 
 grails.commentable.poster.evaluator = { session.user }
+
+grails.resources.modules = {
+	core {
+		resource url:'/js/jquery/jquery-1.7.1.min.js', disposition: 'head'
+	}
+ 
+	fullCalendar {
+		dependsOn 'core'
+		resource url:'/js/fullcalendar/fullcalendar.min.js'
+		resource url:'/css/fullcalendar/fullcalendar.css'
+	}
+ 
+	calendar {
+		dependsOn 'fullCalendar'
+ 
+		resource url: '/js/calendar.js'
+		resource url: '/css/calendar.css'
+ 
+	}
+ 
+}
