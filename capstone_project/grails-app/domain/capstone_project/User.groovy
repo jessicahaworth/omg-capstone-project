@@ -22,7 +22,7 @@ class User implements Commentable
 						memberOf:MemberOfProject]
 	
 	
-	
+	//long id
 	String login
 	String password
 	String role = "user"

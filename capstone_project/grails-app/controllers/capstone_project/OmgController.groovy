@@ -1,8 +1,18 @@
 package capstone_project
 
 import org.springframework.dao.DataIntegrityViolationException
+import org.joda.time.DateTime
+import org.joda.time.Instant
+
+import grails.converters.JSON
+import java.text.SimpleDateFormat
 
 class OmgController {
+<<<<<<< Updated upstream
+=======
+	def eventService
+
+>>>>>>> Stashed changes
 	//custom shows...
 	def index()
 	{
@@ -15,15 +25,12 @@ class OmgController {
 			redirect(action: "showUser", id:session.user.id)
 	}
 	
-	def calendarTest()
-	{
-		
-	}
 	
 	def login = {}
 	
 	def logout = {
-		flash.message = "Goodbye ${session.user.login}"
+		if ( session.user != null )
+			flash.message = "Goodbye ${session.user.login}"
 		session.user = null
 		redirect(action:"login")
 	}
@@ -51,6 +58,7 @@ class OmgController {
 		}
 		else
 		{
+			System.out.println(params.id);
 			def userInstance = User.get(params.id)
 			if (!userInstance) {
 				flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])

@@ -9,7 +9,7 @@
 <div id="addComment" class="addComment">
 	<h2 class="addCommentTitle">
 		<a href="#commentEditor" onclick="document.getElementById('addCommentContainer').style.display='';">
-			<g:message code="comment.add.title" default="Post a Comment"></g:message>
+			<g:message code="comment.add.title" default="Post to Wall"></g:message>
 		</a>
 	</h2>
 	<div id="addCommentContainer" class="addCommentContainer" style="display:none;">
