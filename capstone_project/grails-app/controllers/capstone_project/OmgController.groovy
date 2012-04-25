@@ -3,7 +3,6 @@ package capstone_project
 import org.springframework.dao.DataIntegrityViolationException
 
 class OmgController {
-
 	//custom shows...
 	def index()
 	{
