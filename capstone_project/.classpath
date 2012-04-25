@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="C:/Downloads/EnvolveChat/EnvolveChat.jar"/>
 	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="src" path="src/groovy"/>
 	<classpathentry kind="src" path="grails-app/conf"/>
@@ -12,8 +10,6 @@
 	<classpathentry kind="src" path="grails-app/utils"/>
 	<classpathentry kind="src" path="test/integration"/>
 	<classpathentry kind="src" path="test/unit"/>
-<<<<<<< HEAD
-=======
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path=".link_to_grails_plugins/avatar-0.5.2/grails-app/taglib">
 		<attributes>
@@ -30,7 +26,6 @@
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>
 		</attributes>
 	</classpathentry>
->>>>>>> dc55aedb4e3f1e502513b28cdd2308bbdb0cd0c2
 	<classpathentry kind="src" path=".link_to_grails_plugins/commentable-0.8.0/grails-app/controllers">
 		<attributes>
 			<attribute name="com.springsource.sts.grails.core.SOURCE_FOLDER" value="true"/>

@@ -79,15 +79,7 @@
 		<div id="page-body" role="main" width="90%">
 		<g:layoutBody/>
 		</div>
-		<div class="footer" role="contentinfo">
-			<!-- Envolve Chat -->
-			<script type="text/javascript">
-			var envoSn=67177;
-			var env_commandString="SECURE_LOGIN_REQUEST";
-			var envProtoType = (("https:" == document.location.protocol) ? "https://" : "http://");
-			document.write(unescape("%3Cscript src='" + envProtoType + "d.envolve.com/env.nocache.js' type='text/javascript'%3E%3C/script%3E"));
-			</script>
-		</div>
+		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<g:javascript library="application"/>
 

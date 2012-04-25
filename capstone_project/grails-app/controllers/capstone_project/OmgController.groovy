@@ -1,18 +1,9 @@
 package capstone_project
 
 import org.springframework.dao.DataIntegrityViolationException
-import org.joda.time.DateTime
-import org.joda.time.Instant
-
-import grails.converters.JSON
-import java.text.SimpleDateFormat
 
 class OmgController {
-<<<<<<< Updated upstream
-=======
-	def eventService
 
->>>>>>> Stashed changes
 	//custom shows...
 	def index()
 	{
@@ -24,7 +15,6 @@ class OmgController {
 		else
 			redirect(action: "showUser", id:session.user.id)
 	}
-	
 	
 	def login = {}
 	
