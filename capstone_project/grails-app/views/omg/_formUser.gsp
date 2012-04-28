@@ -18,17 +18,6 @@
 </div>
 
 <div
-	class="fieldcontain ${hasErrors(bean: userInstance, field: 'role', 'error')} ">
-	<label for="role"> <g:message code="user.role.label"
-			default="Role" />
-
-	</label>
-	<g:select name="role" from="${userInstance.constraints.role.inList}"
-		value="${userInstance?.role}" valueMessagePrefix="user.role"
-		noSelection="['': '']" />
-</div>
-
-<div
 	class="fieldcontain ${hasErrors(bean: userInstance, field: 'firstName', 'error')} required">
 	<label for="firstName"> <g:message code="user.firstName.label"
 			default="First Name" /> <span class="required-indicator">*</span>
@@ -64,47 +53,3 @@
 	<g:field type="text" name="about" size="55"
 		value="${userInstance?.about}" />
 </div>
-
-<div
-	class="fieldcontain ${hasErrors(bean: userInstance, field: 'hasSkill', 'error')} ">
-	<label for="hasSkill"> <g:message code="user.hasSkill.label"
-			default="Has Skill" />
-
-	</label>
-
-	<ul class="one-to-many">
-		<g:each in="${userInstance?.hasSkill?}" var="h">
-			<li><g:link controller="userSkill" action="show" id="${h.id}">
-					${h?.encodeAsHTML()}
-				</g:link></li>
-		</g:each>
-		<li class="add"><g:link controller="userSkill" action="create"
-				params="['user.id': userInstance?.id]">
-				${message(code: 'default.add.label', args: [message(code: 'userSkill.label', default: 'UserSkill')])}
-			</g:link></li>
-	</ul>
-
-</div>
-
-<div
-	class="fieldcontain ${hasErrors(bean: userInstance, field: 'memberOf', 'error')} ">
-	<label for="memberOf"> <g:message code="user.memberOf.label"
-			default="Member Of" />
-
-	</label>
-
-	<ul class="one-to-many">
-		<g:each in="${userInstance?.memberOf?}" var="m">
-			<li><g:link controller="memberOfProject" action="show"
-					id="${m.id}">
-					${m?.encodeAsHTML()}
-				</g:link></li>
-		</g:each>
-		<li class="add"><g:link controller="memberOfProject"
-				action="create" params="['user.id': userInstance?.id]">
-				${message(code: 'default.add.label', args: [message(code: 'memberOfProject.label', default: 'MemberOfProject')])}
-			</g:link></li>
-	</ul>
-
-</div>
-

@@ -24,31 +24,5 @@
 		
 	</label>
 	
-<ul class="one-to-many">
-<g:each in="${projectInstance?.member?}" var="m">
-    <li><g:link controller="memberOfProject" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="memberOfProject" action="create" params="['project.id': projectInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'memberOfProject.label', default: 'MemberOfProject')])}</g:link>
-</li>
-</ul>
 
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'projectSkill', 'error')} ">
-	<label for="projectSkill">
-		<g:message code="project.projectSkill.label" default="Project Skill" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${projectInstance?.projectSkill?}" var="p">
-    <li><g:link controller="projectSkill" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="projectSkill" action="create" params="['project.id': projectInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'projectSkill.label', default: 'ProjectSkill')])}</g:link>
-</li>
-</ul>
-
-</div>
 
