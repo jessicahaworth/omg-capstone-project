@@ -76,14 +76,9 @@
 
             <g:actionSubmit class="edit" action="edit"
                             value="${message(code: 'default.button.edit.label', default: 'Edit')}"/>
-            <g:actionSubmit class="delete ${eventInstance.isRecurring ? 'recurring' : ''}" action="delete"
-                            value="${message(code: 'default.button.delete.label', default: 'Delete')}" />
         </fieldset>
     </g:form>
 
-    <g:if test="${eventInstance.isRecurring}">
-        <g:render template="deletePopup" model="model" />
-    </g:if>
 
 </div>
 </body>

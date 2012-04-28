@@ -1,8 +1,8 @@
 $(document).ready(function() {
     renderCalendar();
     setupDatePickers();
-    setupRecurOptions();
-    setupRecurSavePopups();
+    //setupRecurOptions();
+    //setupRecurSavePopups();
 });
 
 function renderCalendar() {

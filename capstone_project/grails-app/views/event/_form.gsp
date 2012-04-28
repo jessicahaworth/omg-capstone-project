@@ -35,11 +35,8 @@
 
 <div class="fieldcontain ${hasErrors(bean: eventInstance, field: 'isRecurring', 'error')}">
 
-    <label for="isRecurring"><g:message code="event.isRecurring.label" default="Repeat" /></label>
-    <g:checkBox name="isRecurring" value="${eventInstance.isRecurring}" />
-    <span id="recurDescription"></span>
 
-    <a id="editRecurringLink" ${eventInstance.isRecurring ?  "" : 'style="display:none"'} href="#">Edit</a>
+  
 
 </div>
 

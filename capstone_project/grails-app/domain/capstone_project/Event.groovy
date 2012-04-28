@@ -16,7 +16,7 @@ class Event {
     Date endTime
 
     // Recurring Options
-    boolean isRecurring
+    boolean isRecurring = false
     EventRecurType recurType
     Integer recurInterval = 1
     Date recurUntil
@@ -75,11 +75,11 @@ class Event {
     }
 
     def beforeUpdate() {
-        updateRecurringValues()
+        //updateRecurringValues()
     }
     
     def beforeInsert() {
-        updateRecurringValues()
+        //updateRecurringValues()
     }
     
     def beforeDelete() {
