@@ -8,18 +8,26 @@
   <r:require module="calendar" />
 </head>
 <body>
-
-<table>
+<div>
 <div class="nav" role="navigation">
+<table>
+<thead>
+<tr>
+<td>
     <ul>
         <li><a href="${createLink(uri: '/')}" class="home">Home</a></li>
         <li><g:link action="index" class="calendar">Calendar</g:link></li>
         <li><g:link action="create" class="create">New Event</g:link></li>
     </ul>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    
+<div id="calendar"></div>
+</td></tr></thead>
+    </table>
 </div>
-	
-    <div id="calendar"></div>
-</table>
-
+</div>
 </body>
 </html>
