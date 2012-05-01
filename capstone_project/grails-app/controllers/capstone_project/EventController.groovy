@@ -10,6 +10,10 @@ class EventController {
     def eventService
 
     def index = {
+		if (session.user == null)
+		{
+			redirect(controller:"omg", action: "login")
+		}
 
     }
 
@@ -75,6 +79,11 @@ class EventController {
     }
 
     def create = {
+		if (session.user == null)
+		{
+			redirect(controller:"omg", action: "login")
+		}
+
         def eventInstance = new Event()
         eventInstance.properties = params
 

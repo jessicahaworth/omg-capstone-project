@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <html>
 <head>
   <meta name="layout" content="main">
@@ -7,6 +8,7 @@
   <r:require module="calendar" />
 </head>
 <body>
+
 <table>
 <div class="nav" role="navigation">
     <ul>
@@ -18,5 +20,6 @@
 	
     <div id="calendar"></div>
 </table>
+
 </body>
 </html>
