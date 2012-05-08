@@ -1,9 +1,14 @@
 package org.grails.comments
 
+
+//this plugin remains largely unchanged
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class CommentController {
 
+	
+	
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {

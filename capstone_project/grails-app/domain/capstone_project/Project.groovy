@@ -5,8 +5,10 @@ import org.apache.commons.collections.list.LazyList;
 import org.apache.commons.collections.FactoryUtils;
 import org.grails.comments.Commentable;
 
-class Project implements Commentable 
+//represents a project at OMG
+class Project implements Commentable //implements commentable, making each project commentable by users of OMG
 {
+	//in this case, constraints are listed in the order we would like them to appear when viewing a project page
 	static constraints = {
 		name()
 		description()
@@ -14,15 +16,16 @@ class Project implements Commentable
 		lastUpdated()
 		
 	}
+	//name of the project
 	String name
+	//description of the project
 	String description
 	
 	Date dateCreated
 	Date lastUpdated
 	//List members = new ArrayList()
 
-	
-
+	//mappings - each project has many skills and many members
 	static hasMany = [projectSkill:ProjectSkill, member:MemberOfProject]
 	
 	String toString(){

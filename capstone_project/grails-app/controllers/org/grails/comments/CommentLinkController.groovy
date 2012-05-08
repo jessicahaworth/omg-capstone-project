@@ -1,5 +1,7 @@
 package org.grails.comments
 
+//this is a plugin file...and remains largely unchanged
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class CommentLinkController {

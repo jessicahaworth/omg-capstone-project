@@ -1,5 +1,8 @@
 package capstone_project
 
+//	this controller is one of the 2 controllers that users of OMG actually interface with.
+//  this controller manipulates Event objects and interfaces with the fullCalendar plugin
+
 import org.joda.time.DateTime
 import org.joda.time.Instant
 
@@ -7,9 +10,13 @@ import grails.converters.JSON
 import java.text.SimpleDateFormat
 
 class EventController {
-    def eventService
+	//	each closure corresponds to a url
+    //once again, eventService logic is provided here
+	def eventService
 
+	//index...not url associated with it.  default page rendered by the system
     def index = {
+		//wrapper to insure a valid session for user exists.
 		if (session.user == null)
 		{
 			redirect(controller:"omg", action: "login")
@@ -17,9 +24,11 @@ class EventController {
 
     }
 
+	//list events
     def list = {
         def (startRange, endRange) = [params.long('start'), params.long('end')].collect { new Instant(it  * 1000L).toDate() }
 
+		//query
         def events = Event.withCriteria {
             or {
                 and {
@@ -78,6 +87,7 @@ class EventController {
         }
     }
 
+	//create a new event
     def create = {
 		if (session.user == null)
 		{
@@ -90,7 +100,7 @@ class EventController {
         [eventInstance: eventInstance]
     }
 
-
+	//show a specific event
     def show = {
         def (occurrenceStart, occurrenceEnd) = [params.long('occurrenceStart'), params.long('occurrenceEnd')]
         def eventInstance = Event.get(params.id)
@@ -112,6 +122,7 @@ class EventController {
 
     }
 
+	//save an event
     def save = {
         def eventInstance = new Event(params)
 
@@ -124,7 +135,8 @@ class EventController {
         }
 
     }
-
+	
+	//edit an event
     def edit = {
         def eventInstance = Event.get(params.id)
         def (occurrenceStart, occurrenceEnd) = [params.long('occurrenceStart'), params.long('occurrenceEnd')]
@@ -139,6 +151,7 @@ class EventController {
 
     }
 
+	//update an event
     def update = {
         def eventInstance = Event.get(params.id)
         String editType = params.editType
@@ -160,6 +173,7 @@ class EventController {
     }
 
 
+	//delete an event
     def delete = {
         def eventInstance = Event.get(params.id)
         String deleteType = params.deleteType

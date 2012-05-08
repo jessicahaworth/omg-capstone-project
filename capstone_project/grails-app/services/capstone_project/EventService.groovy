@@ -12,7 +12,7 @@ import org.joda.time.Years
 import org.joda.time.Instant
 import org.joda.time.Minutes
 
-
+//eventService contains logic used in the event domain, views, and controllers.
 class EventService {
 
     def updateEvent(Event eventInstance, String editType, def params) {

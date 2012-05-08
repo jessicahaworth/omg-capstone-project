@@ -1,8 +1,7 @@
 package capstone_project
-
-
 import java.util.Date;
 
+//	this domain represents the many to many relationship between users and the skills they have
 class UserSkill 
 {
 	static constraints = 
@@ -13,9 +12,10 @@ class UserSkill
 		dateCreated()
 	}
 	
+	
+	//each UserSkill belongs to one user and one skill
 	static belongsTo = [user:User, skill:Skill]
 	
-	//Boolean paid
 	Date dateCreated
 	
 	String toString(){
